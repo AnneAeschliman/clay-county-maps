@@ -5,7 +5,7 @@ const loading = document.getElementById('loading')
 
 
 // function to get the list of SECs from the database and populate the dropdown menu.
-async function getList() {
+async function getList(filter) {
   const response = await fetch('https://claycountymap.onrender.com/api/filter/' + filter, { method: 'GET' })
     .then((res) => {
       return res.json();
@@ -27,7 +27,7 @@ async function getList() {
     .catch((error) => console.error('Error:', error))
 }
 
-getList()
+getList('sec')
 
 // function to get the data from the database and populate the table based on the selected filter value
 async function getData(filter, param) {
